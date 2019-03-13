@@ -1,0 +1,58 @@
+Домашнюю выполняла на рабочем MySQL
+
+1) Напишите запрос, который выведет все записи из таблицы Products
+
+Запрос: 
+SELECT ID, description, maxAmount, maxLoanPeriodInDays, maxLoanPeriodInMonths, minAmount, minLoanPeriodInDays, minLoanPeriodInMonths, penalty, productName, productType, stake, prolongStake, baseStake, feeAlgorithm, limitStep, stakeStep, published, maxStake, startDate, overdueRaise, ProductGroup_ID, sendConfirmation, gracePeriodEndDay, graceAlgorithm
+FROM finance.Product;
+
+
+
+2) Напишите запрос, который выведет только те записи из таблицы Products, в которых цена (product_price) больше 4
+
+Запрос: 
+SELECT ID, description, maxAmount, maxLoanPeriodInDays, maxLoanPeriodInMonths, minAmount, minLoanPeriodInDays, minLoanPeriodInMonths, penalty, productName, productType, stake, prolongStake, baseStake, feeAlgorithm, limitStep, stakeStep, published, maxStake, startDate, overdueRaise, ProductGroup_ID, sendConfirmation, gracePeriodEndDay, graceAlgorithm
+FROM finance.Product WHERE maxAmount>'15000,0000';
+
+http://prntscr.com/mx8qjb
+
+
+
+3) Напишите запрос, которые вернет только те записи из таблицы Customers, в которых cust_name НЕ равно Fun4All
+типовое задание: "Напишите запрос, который вернет только те записи из таблицы Cession, в которых acquirerNameShort НЕ равно ООО "Примоколлект"
+
+Вид таблицы до запроса: http://prntscr.com/mx90xx
+
+Запрос: 
+SELECT loan_Id, acquirerName, acquirerNameShort, acquirerNameBrand, acquirerOGRN, acquirerINN, phone, saleContractNumber, saleContractDate
+FROM finance.Cession WHERE acquirerNameShort<>'ООО "Примоколлект"';
+
+Вид таблицы с выполненным запросом: http://prntscr.com/mx92b9
+
+
+
+
+4) Напишите запрос, который вернет все записи из таблицы OrderItems, отсортированные по уменьшению цены.
+Типовое задание: Напишите запрос, который вернет все записи из таблицы User, отсортированные по алфавиту в столбце firstName.
+
+Вид таблицы User до сортировки:   http://prntscr.com/mx9s8b
+
+Запрос:  
+SELECT ID, email, enabled, firstName, lastName, login, password, role_id, assignClients, middleName, mobile, vkProfile, extraMobile, aliasFirstName, aliasMiddleName, consultId, autoCallType, callConvenientTimeFrom, callConvenientTimeTo, callMaskType, callMaskValue, currentCallDialogStatus, isActiveAutoCall, lastRoleSelectTime, mobileToTelephony, telephonyLogin, telephonyRole, virtualTelephonyLogin, callForwardDelaySeconds, creationDate, passwordExpired, recovering, autoPickUp, isTurnOffStatistic, currentRole_ID, currentBrand, currentIncomingQueue_id, callCenter, userWorkShift, allowCallRedirect
+FROM finance.`User`
+ORDER BY firstName;
+
+Вид таблицы User после сортировки: http://prntscr.com/mx9va1
+
+
+
+5*  Напишите запрос, добавляющий новую запись в таблицу Products. Данные можно использовать произвольные. Обратите внимание, что поставщик (vend_id) может быть только уже существующий.
+Типовое задание: Напишите запрос, добавляющий новую запись в таблицу Cession.
+
+
+Запрос: 
+INSERT INTO finance.Cession (loan_Id, acquirerName, acquirerNameShort, acquirerNameBrand, acquirerOGRN, acquirerINN, phone, saleContractNumber, saleContractDate) 
+VALUES ('10000', 'Общество "ИНФО', 'ООО "инфо', '"ИНФО', '0000000', '00000', '111111','22222222','2018-11-30');
+
+В таблице Cession создана новая строка: http://prntscr.com/mx9kiu
+
